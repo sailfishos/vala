@@ -1,3 +1,6 @@
 [submodule "vala"]
 	path = vala
 	url = git://git.gnome.org/vala
+[submodule "vala-bootstrap"]
+	path = vala-bootstrap
+	url = git://git.gnome.org/vala-bootstrap
