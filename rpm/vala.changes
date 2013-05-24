@@ -1,0 +1,133 @@
+* Mon Dec 10 2012 Marko Saukko <marko.saukko@jollamobile.com> - 0.16.1
+- Updated packaging.
+
+* Tue Jun 26 2012 Marko Saukko <sage@merproject.org> - 0.16.1
+- Update to version 0.16.1
+
+* Mon Nov 14 2011 Marko Saukko <marko.saukko@cybercom.com> - 0.12.0
+- Removed gtk2+ dependency added glib2 dep.
+
+* Mon Apr 11 2011 Yan Yin <yan.yin@intel.com> - 0.12.0
+- Update to 0.12.0 (BMC #15685)
+
+* Wed Jan 19 2011 Yan Yin <yan.yin@intel.com> - 0.11.4
+- Update to 0.11.4 (BMC #12618)
+
+* Thu Dec 09 2010 Yan Yin <yan.yin@intel.com> - 0.11.2
+- Update to 0.11.2 (BMC #11093 )
+
+* Mon Aug  9 2010 Quanxian Wang <quanxian.wang@intel.com> - 0.9.4
+- Update to 0.9.4
+
+* Tue Jun 22 2010 Yan Yin <yan.yin@intel.com> - 0.9.2
+- Update to 0.9.2
+
+* Fri Apr 02 2010 Vivian Zhang <vivian.zhang@intel.com> - 0.8.0
+- Update to 0.8.0
+
+* Tue Feb 23 2010 Anas Nashif <anas.nashif@intel.com> - 0.7.9
+- Use spectacle
+
+* Sun Jan 31 2010 Vivian Zhang <vivian.zhang@intel.com> - 0.7.9
+- Update to 0.7.9
+
+* Fri Jan 01 2010 Anas Nashif <anas.nashif@intel.com> - 0.7.8
+- Update to 0.7.8
+
+* Mon Apr 27 2009 Vivian Zhang <vivian.zhang@intel.com> 0.7.1
+- Update to 0.7.1
+
+* Fri Feb 27 2009 Zhang, Qiang Z<qiang.z.zhang@intel.com> 0.5.7
+- Update to 0.5.7
+
+* Mon Feb 16 2009 Vivian Zhang <vivian.zhang@intel.com> 0.5.6
+- Update to 0.5.6
+
+* Sun Nov 23 2008 Michel Salim <salimma@fedoraproject.org> - 0.5.1-1
+- Update to 0.5.1
+- Remove BR:emacs emacs-el devhelp
+- Remove Requires: gnome-common
+- Mark man as %doc
+
+* Fri Aug 22 2008 Michel Salim <salimma@fedoraproject.org> - 0.3.5-1
+- Update to 0.3.5
+
+* Tue Jul 15 2008 Michel Salim <salimma@fedoraproject.org> - 0.3.4-2
+- Add vala-mode for editing Vala code in Emacs
+
+* Tue Jul  1 2008 Lennart Poettering <lpoetter@redhat.com> - 0.3.4-1
+- Update to 0.3.4
+
+* Wed Jun  4 2008 Michel Salim <salimma@fedoraproject.org> - 0.3.3-1
+- Update to 0.3.3
+
+* Fri May 16 2008 Michel Salim <salimma@fedoraproject.org> - 0.3.2-1
+- Update to 0.3.2
+
+* Thu Apr 10 2008 Michel Salim <salimma@fedoraproject.org> - 0.2.0-1
+- Update to 0.2.0
+
+* Wed Mar  5 2008 Michel Salim <salimma@fedoraproject.org> - 0.1.7-1
+- Update to 0.1.7
+- -tool subpackage now requires gnome-common, intltool and libtoolize
+  for out-of-the-box vala-gen-project support
+
+* Tue Feb 19 2008 Fedora Release Engineering <rel-eng@fedoraproject.org> - 0.1.6-2
+- Autorebuild for GCC 4.3
+
+* Sat Jan 19 2008 Michel Salim <salimma@fedoraproject.org> - 0.1.6-1
+- Update to 0.1.6
+- Revert vapi addition, needed declarations have been inlined (r846)
+- Rename -docs subpackage to -doc, to comply with guidelines
+
+* Tue Jan 15 2008 Michel Salim <salimma@fedoraproject.org> - 0.1.5-5
+- Manually add Gee vapi file to package (bz #428692)
+
+* Tue Dec  4 2007 Michel Salim <salimma@fedoraproject.org> - 0.1.5-4
+- Backport patch to autodetect location of automake shared files
+
+* Tue Dec  4 2007 Michel Salim <salimma@fedoraproject.org> - 0.1.5-3
+- Add build dependency on gtk2-devel
+
+* Tue Dec  4 2007 Michel Salim <salimma@fedoraproject.org> - 0.1.5-2
+- Enable project generator tool
+
+* Tue Nov 27 2007 Michel Salim <salimma@fedoraproject.org> - 0.1.5-1
+- Update to 0.1.5
+
+* Sun Nov 11 2007 Michel Salim <salimma@fedoraproject.org> - 0.1.4-2
+- Add build dependency on devhelp
+
+* Fri Oct 19 2007 Michel Salim <salimma@fedoraproject.org> - 0.1.4-1
+- Update to 0.1.4
+- Put newly-added documentation in its own subpackage (depends on devhelp)
+
+* Mon Sep 17 2007 Michel Salim <salimma@fedoraproject.org> - 0.1.3-5
+- vapigen subpackage: add missing Require: on perl-XML-Twig
+
+* Sat Sep  8 2007 Michel Salim <salimma@fedoraproject.org> - 0.1.3-4
+- Split -vapigen subpackage. It is functionally self-contained and the license
+  is more restricted
+- Updated license declarations
+
+* Wed Sep  5 2007 Michel Salim <salimma@fedoraproject.org> - 0.1.3-3
+- Licensing and URL updates
+
+* Tue Sep  4 2007 Michel Salim <salimma@fedoraproject.org> - 0.1.3-2
+- Enable binding generation tools
+
+* Sun Sep  2 2007 Michel Salim <salimma@fedoraproject.org> - 0.1.3-1
+- Update to 0.1.3
+
+* Sun Mar 25 2007 Michel Salim <salimma@fedoraproject.org> - 0.0.8-1
+- Update to 0.0.8
+
+* Wed Mar  7 2007 Michel Salim <salimma@fedoraproject.org> - 0.0.7-1
+- Update to 0.0.7
+
+* Wed Feb 28 2007 Michel Salim <salimma@fedoraproject.org> - 0.0.6-1
+- Update to 0.0.6
+
+* Mon Nov  6 2006 Michel Salim <salimma@fedoraproject.org> - 0.0.5-1
+- Initial package
+
