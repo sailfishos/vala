@@ -15,8 +15,6 @@ Group:      Development/Languages
 License:    LGPLv2+ and BSD
 URL:        http://live.gnome.org/Vala
 Source0:    http://download.gnome.org/sources/vala/0.16/vala-%{version}.tar.xz
-Source100:  vala.yaml
-Patch0:     disable-bootstrap.patch
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(glib-2.0)
@@ -92,32 +90,25 @@ using the %{name} compiler.
 %prep
 %setup -q -n %{name}-%{version}/%{name}
 
-# disable-bootstrap.patch
-%patch0 -p1
-# >> setup
-# << setup
-
 %build
-# >> build pre
-%autogen
-# << build pre
 
-%configure --disable-static \
-    --enable-vapigen
+cd ../vala-bootstrap
+export PREFIX=$PWD/../bootstrap
+./autogen.sh --prefix=$PREFIX --enable-build-from-vala=no --disable-vapigen
+./configure --prefix=$PREFIX --enable-build-from-vala=no --disable-vapigen
+
+make V=1 %{?jobs:-j%jobs}
+make install
+
+cd ../vala
+export VALAC=$PREFIX/bin/valac
+%autogen --disable-static --enable-vapigen
 
 make %{?jobs:-j%jobs}
 
-# >> build post
-# << build post
-
 %install
 rm -rf %{buildroot}
-# >> install pre
-# << install pre
 %make_install
-
-# >> install post
-# << install post
 
 %post -p /sbin/ldconfig
 
