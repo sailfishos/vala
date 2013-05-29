@@ -103,7 +103,8 @@ make install
 cd ../vala
 export VALAC=$PREFIX/bin/valac
 %autogen --disable-static --enable-vapigen
-
+echo %{version} > .version
+echo %{version} > .tarball-version
 make %{?jobs:-j%jobs}
 
 %install
