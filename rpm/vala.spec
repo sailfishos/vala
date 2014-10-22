@@ -1,7 +1,7 @@
 Name:       vala
 
 Summary:    A modern programming language for GNOME
-Version:    0.23.1
+Version:    0.24.0
 Release:    1
 Group:      Development/Languages
 License:    LGPLv2+ and BSD
@@ -94,9 +94,9 @@ make install
 
 cd ../vala
 export VALAC=$PREFIX/bin/valac
+echo -n %{version} > .version
+echo -n %{version} > .tarball-version
 %autogen --disable-static --enable-vapigen
-echo %{version} > .version
-echo %{version} > .tarball-version
 make %{?jobs:-j%jobs}
 
 %install
