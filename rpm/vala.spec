@@ -1,12 +1,12 @@
 Name:       vala
 
 Summary:    A modern programming language for GNOME
-Version:    0.24.0
+Version:    0.34.11
 Release:    1
 Group:      Development/Languages
 License:    LGPLv2+ and BSD
 URL:        http://live.gnome.org/Vala
-Source0:    http://download.gnome.org/sources/vala/0.16/vala-%{version}.tar.xz
+Source0:    http://download.gnome.org/sources/vala/0.34.11/vala-%{version}.tar.xz
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(glib-2.0)
@@ -102,6 +102,8 @@ make %{?jobs:-j%jobs}
 %install
 rm -rf %{buildroot}
 %make_install
+# Drop the devhelp, as it's conditionally built depending on the presence of xsltproc
+rm -rf %{buildroot}/%{_datadir}/devhelp/books/vala-*
 
 %post -p /sbin/ldconfig
 
@@ -109,7 +111,6 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-# >> files
 %doc COPYING
 %{_bindir}/valac
 %{_bindir}/valac-*
@@ -117,30 +118,22 @@ rm -rf %{buildroot}
 %{_bindir}/vala-*
 %{_datadir}/vala*
 %{_libdir}/libvala*.so.*
-%{_mandir}/*/valac*
-# << files
 
 %files doc
 %defattr(-,root,root,-)
-# >> files doc
-%doc AUTHORS ChangeLog COPYING MAINTAINERS NEWS README THANKS
-# << files doc
+%doc AUTHORS ChangeLog COPYING NEWS README THANKS
+%{_mandir}/*/valac*
+%{_mandir}/*/*gen*
 
 %files tools
 %defattr(-,root,root,-)
-# >> files tools
 %{_bindir}/*gen*
 %{_bindir}/vapicheck*
 %{_libdir}/vala*
-%{_mandir}/*/*gen*
-# << files tools
 
 %files devel
 %defattr(-,root,root,-)
-# >> files devel
 %{_includedir}/vala*
 %{_libdir}/libvala*.so
 %{_libdir}/pkgconfig/*.pc
-%{_datadir}/pkgconfig/*.pc
 %{_datadir}/aclocal/*
-# << files devel
