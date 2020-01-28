@@ -4,14 +4,16 @@ Summary:    A modern programming language for GNOME
 Version:    0.46.5
 Release:    1
 License:    LGPLv2+ and BSD
-URL:        http://live.gnome.org/Vala
-Source0:    http://download.gnome.org/sources/vala/0.34.11/vala-%{version}.tar.xz
+URL:        https://wiki.gnome.org/Projects/Vala
+Source0:    %{name}-%{version}.tar.xz
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  flex
 BuildRequires:  bison
 BuildRequires:  autoconf-archive
+BuildRequires:  vala
+BuildRequires:  vala-tools
 
 %description
 Vala is a new programming language that aims to bring modern programming
