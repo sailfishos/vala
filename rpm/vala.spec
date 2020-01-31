@@ -1,17 +1,19 @@
 Name:       vala
 
 Summary:    A modern programming language for GNOME
-Version:    0.34.11
+Version:    0.46.5
 Release:    1
-Group:      Development/Languages
 License:    LGPLv2+ and BSD
-URL:        http://live.gnome.org/Vala
-Source0:    http://download.gnome.org/sources/vala/0.34.11/vala-%{version}.tar.xz
+URL:        https://wiki.gnome.org/Projects/Vala
+Source0:    %{name}-%{version}.tar.xz
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  flex
 BuildRequires:  bison
+BuildRequires:  autoconf-archive
+BuildRequires:  vala
+BuildRequires:  vala-tools
 
 %description
 Vala is a new programming language that aims to bring modern programming
@@ -32,7 +34,6 @@ type system.
 %package doc
 Summary:    Documentation for %{name}
 License:    LGPLv2+
-Group:      Documentation
 Requires:   %{name} = %{version}-%{release}
 Requires:   devhelp
 
@@ -48,7 +49,6 @@ This package contains documentation in a devhelp HTML book.
 %package tools
 Summary:    Tools for creating projects and bindings for %{name}
 License:    LGPLv2+
-Group:      Development/Languages
 Requires:   %{name} = %{version}-%{release}
 Requires:   gnome-common
 Requires:   intltool
@@ -66,7 +66,6 @@ from existing C libraries, allowing access from Vala programs.
 
 %package devel
 Summary:    Development files for %{name}
-Group:      Development/Libraries
 Requires:   %{name} = %{version}-%{release}
 
 %description devel
@@ -80,23 +79,12 @@ using the %{name} compiler.
 
 
 %prep
-%setup -q -n %{name}-%{version}/%{name}
+%autosetup -n %{name}-%{version}/%{name}
 
 %build
-
-cd ../vala-bootstrap
-export PREFIX=$PWD/../bootstrap
-./autogen.sh --prefix=$PREFIX --enable-build-from-vala=no --disable-vapigen
-./configure --prefix=$PREFIX --enable-build-from-vala=no --disable-vapigen
-
-make V=1 %{?jobs:-j%jobs}
-make install
-
-cd ../vala
-export VALAC=$PREFIX/bin/valac
-echo -n %{version} > .version
-echo -n %{version} > .tarball-version
-%autogen --disable-static --enable-vapigen
+echo %{version} | cut -d '+' -f 1 > .tarball-version
+cp .tarball-version .version
+%autogen --disable-static --disable-valadoc
 make %{?jobs:-j%jobs}
 
 %install
@@ -111,7 +99,7 @@ rm -rf %{buildroot}/%{_datadir}/devhelp/books/vala-*
 
 %files
 %defattr(-,root,root,-)
-%doc COPYING
+%license COPYING
 %{_bindir}/valac
 %{_bindir}/valac-*
 %{_bindir}/vala
@@ -128,7 +116,6 @@ rm -rf %{buildroot}/%{_datadir}/devhelp/books/vala-*
 %files tools
 %defattr(-,root,root,-)
 %{_bindir}/*gen*
-%{_bindir}/vapicheck*
 %{_libdir}/vala*
 
 %files devel

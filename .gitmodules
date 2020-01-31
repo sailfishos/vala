@@ -1,6 +1,3 @@
 [submodule "vala"]
 	path = vala
-	url = https://git.merproject.org/mirror/vala.git
-[submodule "vala-bootstrap"]
-	path = vala-bootstrap
-	url = https://git.merproject.org/mirror/vala-bootstrap.git
+	url = https://git.sailfishos.org/mirror/vala.git
