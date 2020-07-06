@@ -50,9 +50,6 @@ This package contains documentation in a devhelp HTML book.
 Summary:    Tools for creating projects and bindings for %{name}
 License:    LGPLv2+
 Requires:   %{name} = %{version}-%{release}
-Requires:   gnome-common
-Requires:   intltool
-Requires:   libtool
 
 %description tools
 Vala is a new programming language that aims to bring modern programming
