@@ -1,10 +1,10 @@
 Name:       vala
 
 Summary:    A modern programming language for GNOME
-Version:    0.46.5
+Version:    0.56.1
 Release:    1
 License:    LGPLv2+ and BSD
-URL:        https://wiki.gnome.org/Projects/Vala
+URL:        https://github.com/sailfishos/vala
 Source0:    %{name}-%{version}.tar.xz
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
@@ -14,6 +14,7 @@ BuildRequires:  bison
 BuildRequires:  autoconf-archive
 BuildRequires:  vala
 BuildRequires:  vala-tools
+BuildRequires:  libtool
 
 %description
 Vala is a new programming language that aims to bring modern programming
@@ -82,10 +83,9 @@ using the %{name} compiler.
 echo %{version} | cut -d '+' -f 1 > .tarball-version
 cp .tarball-version .version
 %autogen --disable-static --disable-valadoc
-make %{?jobs:-j%jobs}
+%make_build
 
 %install
-rm -rf %{buildroot}
 %make_install
 # Drop the devhelp, as it's conditionally built depending on the presence of xsltproc
 rm -rf %{buildroot}/%{_datadir}/devhelp/books/vala-*
