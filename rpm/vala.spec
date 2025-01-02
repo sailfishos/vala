@@ -1,13 +1,14 @@
 Name:       vala
 
 Summary:    A modern programming language for GNOME
-Version:    0.56.1
+Version:    0.56.17
 Release:    1
 License:    LGPLv2+ and BSD
 URL:        https://github.com/sailfishos/vala
 Source0:    %{name}-%{version}.tar.xz
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
+BuildRequires:  pkgconfig(gobject-introspection-1.0)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  flex
 BuildRequires:  bison
@@ -95,7 +96,6 @@ rm -rf %{buildroot}/%{_datadir}/devhelp/books/vala-*
 %postun -p /sbin/ldconfig
 
 %files
-%defattr(-,root,root,-)
 %license COPYING
 %{_bindir}/valac
 %{_bindir}/valac-*
@@ -105,18 +105,15 @@ rm -rf %{buildroot}/%{_datadir}/devhelp/books/vala-*
 %{_libdir}/libvala*.so.*
 
 %files doc
-%defattr(-,root,root,-)
-%doc AUTHORS ChangeLog COPYING NEWS README THANKS
+%doc AUTHORS COPYING NEWS README THANKS
 %{_mandir}/*/valac*
 %{_mandir}/*/*gen*
 
 %files tools
-%defattr(-,root,root,-)
 %{_bindir}/*gen*
 %{_libdir}/vala*
 
 %files devel
-%defattr(-,root,root,-)
 %{_includedir}/vala*
 %{_libdir}/libvala*.so
 %{_libdir}/pkgconfig/*.pc
