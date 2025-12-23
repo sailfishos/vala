@@ -1,7 +1,7 @@
 Name:       vala
 
 Summary:    A modern programming language for GNOME
-Version:    0.56.17
+Version:    0.56.18
 Release:    1
 License:    LGPLv2+ and BSD
 URL:        https://github.com/sailfishos/vala
